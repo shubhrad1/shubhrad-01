@@ -19,7 +19,7 @@ const ContactMe = () => {
                             <input type="email" placeholder="
                             Your Email" required/>
                             <input type="text" placeholder="Write to me...." required></input>
-                            <button type="submit">Submit</button> 
+                            <button type="submit">Submit Now</button> 
                         </form>  
                     </div>             
                 </div>
