@@ -1,0 +1,43 @@
+.body{
+    position:relative;
+    display: block;
+    z-index:3;
+    color: aliceblue;
+}
+.card
+{
+    top:60px;
+    width: 30vw;
+    height: 50vh;
+    padding: 12px;
+    position: relative;
+    margin:auto;
+    
+    background: rgba(255,255,255,0.2);
+    border-radius: 12px;
+    /* border-color: rgba(255,255,255,0.2); */
+    box-shadow: rgba(255,255,255,0.2) 0px 0px 20px;
+    /* backdrop-filter: saturate(180%) blur(2px); */
+}
+.table
+{
+    font-family: 'Lobster Two', cursive;
+    
+}
+.header
+{
+    font-size:40px;
+}
+
+.discord, .mail{
+    font-size:20px;
+}
+.mail a
+{
+    text-decoration: none;
+    color: inherit;
+}
+.mail a:hover 
+{
+    text-decoration: underline;
+}
