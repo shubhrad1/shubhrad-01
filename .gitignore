@@ -2,3 +2,4 @@ code
 ls
 env/
 .vscode/
+backend/backend/.env
