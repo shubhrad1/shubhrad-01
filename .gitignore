@@ -3,3 +3,4 @@ ls
 env/
 .vscode/
 backend/backend/.env
+frontend/.env
