@@ -1,10 +1,11 @@
 //import logo from "./logo.svg";
-import "./App.css";
+// import "./App.css";
 
 import ParticlesConfig from "./pages/home/assets/ParticlesConfig";
 
 import HomePage from "./pages/home/Home";
 import ContactMe from "./pages/contact/ContactMe";
+import BlogPost from "./pages/blog/blog";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -30,7 +31,7 @@ function App() {
                         <Route path="/aboutme" element={<ContactMe />} />
                         <Route path="/projects" element={<ContactMe />} />
                         <Route path="/gallery" element={<ContactMe />} />
-                        <Route path="/blogs" element={<ContactMe />} />
+                        <Route path="/blogs" element={<BlogPost />} />
                         <Route path="/contactme" element={<ContactMe />} />
                     </Routes>
                 </Router>

@@ -1,0 +1,79 @@
+.wrapper
+{
+    z-index: 3;
+    color: white;
+    position: relative;
+    width:100vw;
+    height: 100vh;
+    
+}
+.header
+{
+    margin-top: 60px;
+    margin-left: 60px;
+    font-size: 100px;
+    margin-bottom: 60px;
+    
+    position: relative;
+    text-align: left;
+}
+.navbar
+{
+    display:flex;
+    justify-content: space-between;
+    padding-left: 70px;
+    padding-right: 70px;
+
+    font-size: 30px;
+
+    
+}
+.navbar a{
+text-decoration: none;
+    color: white;
+}
+.navbar_box
+{
+    padding:12px;
+}
+.navbar_box:hover{
+    background-color:rgba(255, 255, 255,0.4);
+    
+}
+
+.body
+{
+    margin-top: 20px;
+}
+.blog_card
+{
+    width: 90vw;
+    height: 150px;
+    background-color: rgba(255, 255, 255,0.5);
+    border-radius: 12px;
+    margin:0 auto;
+    padding:20px ;
+}
+
+.blog_title
+{
+    font-size: 60px;
+    font-style: italic;
+    text-align: left;
+}
+.blog_content
+{
+    text-align: left;
+}
+.blogArea
+{
+    display: flex;
+    justify-content: center;
+}
+.blogtile
+{
+width:800px;
+height: 200px;
+margin:20px;
+background-color: rgba(255, 255, 255,0.4);
+}
