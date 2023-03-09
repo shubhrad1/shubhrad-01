@@ -1,3 +1,3 @@
-cd ../backend
+cd backend
 pip install -r requirements.txt
 python manage.py collectstatics
