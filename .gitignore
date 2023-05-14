@@ -4,3 +4,4 @@ env/
 .vscode/
 backend/backend/.env
 frontend/.env
+node_modules
