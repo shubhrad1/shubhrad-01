@@ -86,8 +86,12 @@ jobs:
           ls tmp/
           ls tmp/build
           echo "$SSH_USERNAME"
+          echo "$SSH_PRIVATE_KEY" | tr -d '\r' > deploy_key
+          chmod 600 deploy_key
+          eval "$(ssh-agent -s)"
+          ssh-add deploy_key
 
-          scp -i ${{ secrets.AZURE_SSH_PRIVATE_KEY }} 'tmp/build/build.tar.gz' "$SSH_USERNAME"@"$SSH_HOSTNAME":/home/"$SSH_USERNAME"/
+          scp -o StrictHostKeyChecking=no -r tmp/build/build.tar.gz "$SSH_USERNAME"@"$SSH_HOSTNAME":/home/"$SSH_USERNAME"/
           ssh -i ${{ secrets.AZURE_SSH_PRIVATE_KEY }} "$SSH_USERNAME@$SSH_HOSTNAME" 'mkdir -p $SSH_TARGET_DIR'
           ssh -i ${{ secrets.AZURE_SSH_PRIVATE_KEY }} "$SSH_USERNAME@$SSH_HOSTNAME" 'tar -xzf /home/$SSH_USERNAME/build.tar.gz -C $SSH_TARGET_DIR --strip-components=1'
           ssh -i ${{ secrets.AZURE_SSH_PRIVATE_KEY }} "$SSH_USERNAME@$SSH_HOSTNAME" 'rm /home/$SSH_USERNAME/build.tar.gz'
