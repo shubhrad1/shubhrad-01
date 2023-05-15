@@ -43,9 +43,11 @@ jobs:
           VM_IP: ${{ secrets.AZURE_VM_IP }}
           SSH_PRIVATE_KEY: ${{ secrets.AZURE_SSH_PRIVATE_KEY }}
         run: |
-          ssh -i "$SSH_PRIVATE_KEY" shubhrad1@"$VM_IP" 'cd /path/to/your/django/project && git pull'
-          ssh -i "$SSH_PRIVATE_KEY" shubhrad1@"$VM_IP" 'cd /path/to/your/django/project && pip install -r path/to/requirements.txt'
-          ssh -i "$SSH_PRIVATE_KEY" shubhrad1@"$VM_IP" 'cd /path/to/your/django/project && python manage.py migrate'
-          ssh -i "$SSH_PRIVATE_KEY" shubhrad1@"$VM_IP" 'cd /path/to/your/django/project && python manage.py collectstatic --noinput'
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa 'cd /path/to/your/django/project && git pull'
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa 'cd /path/to/your/django/project && pip install -r path/to/requirements.txt'
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa 'cd /path/to/your/django/project && python manage.py migrate'
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa 'cd /path/to/your/django/project && python manage.py collectstatic --noinput'
           
 
