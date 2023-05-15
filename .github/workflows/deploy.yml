@@ -43,6 +43,7 @@ jobs:
           VM_IP: ${{ secrets.AZURE_VM_IP }}
           SSH_PRIVATE_KEY: ${{ secrets.AZURE_SSH_PRIVATE_KEY }}
         run: |
+          mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa 'cd /path/to/your/django/project && git pull'
