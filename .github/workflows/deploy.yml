@@ -40,14 +40,11 @@ jobs:
 
       - name: Deploy to Azure VM
         uses: appleboy/ssh-action@master
-        env:
-          VM_IP: ${{ secrets.AZURE_VM_IP }}
-          SSH_PRIVATE_KEY: ${{ secrets.AZURE_SSH_PRIVATE_KEY }}
-       
+
         with:
-          host: "$AZURE_VM_IP"
+          host: ${{ secrets.AZURE_VM_IP }}
           username: shubhrad1
-          key: "$SSH_PRIVATE_KEY"
+          key: ${{ secrets.AZURE_SSH_PRIVATE_KEY }}
           script: |
             cd shubhrad-01
             git pull
