@@ -16,12 +16,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-    
-      - name: Set up environment variables
-        env:
-          VM_IP: ${{ secrets.AZURE_VM_IP }}
-          SSH_PRIVATE_KEY: ${{ secrets.AZURE_SSH_PRIVATE_KEY }}
-          
+     
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -44,6 +39,9 @@ jobs:
         
 
       - name: Deploy to Azure VM
+        env:
+          VM_IP: ${{ secrets.AZURE_VM_IP }}
+          SSH_PRIVATE_KEY: ${{ secrets.AZURE_SSH_PRIVATE_KEY }}
         run: |
           ssh -i "$SSH_PRIVATE_KEY" shubhrad1@"$VM_IP" 'cd /path/to/your/django/project && git pull'
           ssh -i "$SSH_PRIVATE_KEY" shubhrad1@"$VM_IP" 'cd /path/to/your/django/project && pip install -r path/to/requirements.txt'
