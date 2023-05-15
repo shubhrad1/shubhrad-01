@@ -47,4 +47,4 @@ jobs:
           ssh -i "$SSH_PRIVATE_KEY" shubhrad1@"$VM_IP" 'cd shubhrad1/backend -r path/to/requirements.txt'
           ssh -i "$SSH_PRIVATE_KEY" shubhrad1@"$VM_IP" 'cd shubhrad1/backend && python manage.py migrate'
           ssh -i "$SSH_PRIVATE_KEY" shubhrad1@"$VM_IP" 'cd shubhrad1/backend && python manage.py collectstatic --noinput'
-          ssh -i "$SSH_PRIVATE_KEY" shubhrad1@"$VM_IP" 'sudo systemctl restart my_django_service'
+          
