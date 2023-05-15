@@ -64,7 +64,7 @@ const HomePage = () => {
                 <div className={Home.content}><Link to="/aboutme" style={{textDecoration: 'none', color:'inherit'}}>About Me</Link></div>
                 <div className={Home.content}><Link to="/projects" style={{textDecoration: 'none', color:'inherit'}}>Projects</Link></div>
                 <div className={Home.content}><Link to="/gallery" style={{textDecoration: 'none', color:'inherit'}}>Images</Link></div>
-                <div className={Home.content}><Link to="/blogs" style={{textDecoration: 'none', color:'inherit'}}>BlogNetz</Link></div>
+                <div className={Home.content}><Link to="/blogs" style={{textDecoration: 'none', color:'inherit'}}>Blog</Link></div>
                 <div className={Home.content}><Link to="/contactme" style={{textDecoration: 'none', color:'inherit'}}>Contact Me</Link></div>
             </div>
        
