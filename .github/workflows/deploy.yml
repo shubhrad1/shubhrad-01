@@ -39,16 +39,17 @@ jobs:
         
 
       - name: Deploy to Azure VM
+        uses: appleboy/ssh-action@master
         env:
           VM_IP: ${{ secrets.AZURE_VM_IP }}
           SSH_PRIVATE_KEY: ${{ secrets.AZURE_SSH_PRIVATE_KEY }}
-        run: |
-          mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa shubhrad1@"$VM_IP" 'cd shubhrad-01 && git pull'
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa shubhrad1@"$VM_IP" 'cd shubhrad-01/backend && pip install -r path/to/requirements.txt'
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa shubhrad1@"$VM_IP" 'cd shubhrad-01/backend && python manage.py migrate'
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa shubhrad1@"$VM_IP" 'cd shubhrad-01/backend && python manage.py collectstatic --noinput'
-          
+       
+        with:
+          host: "$AZURE_VM_IP"
+          username: shubhrad1
+          key: "$SSH_PRIVATE_KEY"
+          script: |
+            cd shubhrad-01
+            git pull
+            
 
