@@ -66,7 +66,7 @@ jobs:
           SSH_TARGET_DIR: /home/shubhrad1/shubhrad-01/backend/build
         run: |
           mkdir -p tmp/build
-          tar czf tmp/build/build.tar.gz -C /home/runner/work/shubhrad-01/shubhrad-01/backend/build .
+          tar czf tmp/build/build.tar.gz -C /home/runner/work/shubhrad-01/shubhrad-01/backend/build/ .
           scp -i "$SSH_PRIVATE_KEY" tmp/build/build.tar.gz "$SSH_USERNAME@$SSH_HOSTNAME:/home/$SSH_USERNAME/"
           ssh -i "$SSH_PRIVATE_KEY" "$SSH_USERNAME@$SSH_HOSTNAME" 'mkdir -p $SSH_TARGET_DIR'
           ssh -i "$SSH_PRIVATE_KEY" "$SSH_USERNAME@$SSH_HOSTNAME" 'tar xzf /home/$SSH_USERNAME/build.tar.gz -C $SSH_TARGET_DIR --strip-components=1'
