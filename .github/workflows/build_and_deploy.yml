@@ -51,14 +51,18 @@ jobs:
       
           
       - name: Copy build artifacts to Azure VM
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.AZURE_VM_IP }}
-          username: shubhrad1
-          key: ${{ secrets.AZURE_SSH_PRIVATE_KEY }}
-          source: backend/build/
-          target: "/home/shubhrad-01/backend"
-        
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.AZURE_SSH_PRIVATE_KEY }}
+          SSH_USERNAME: shubhrad1
+          SSH_HOSTNAME: ${{ secrets.AZURE_VM_IP }}
+          SSH_TARGET_DIR: /home/shubhrad1/shubhrad-01/backend/build
+        run: |
+          tar -czf build.tar.gz -C shubhrad-01/backend/build .
+          scp -i "$SSH_PRIVATE_KEY" build.tar.gz "$SSH_USERNAME@$SSH_HOSTNAME:/home/$SSH_USERNAME/"
+          ssh -i "$SSH_PRIVATE_KEY" "$SSH_USERNAME@$SSH_HOSTNAME" 'mkdir -p $SSH_TARGET_DIR'
+          ssh -i "$SSH_PRIVATE_KEY" "$SSH_USERNAME@$SSH_HOSTNAME" 'tar -xzf /home/$SSH_USERNAME/build.tar.gz -C $SSH_TARGET_DIR --strip-components=1'
+          ssh -i "$SSH_PRIVATE_KEY" "$SSH_USERNAME@$SSH_HOSTNAME" 'rm /home/$SSH_USERNAME/build.tar.gz'
+
 
       - name: Deploy to Azure VM
         uses: appleboy/ssh-action@master
