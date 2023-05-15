@@ -40,12 +40,6 @@ jobs:
      
       - name: Checkout code
         uses: actions/checkout@v3
-        
-      - run: mkdir ~/build
-      - uses: actions/download-artifact@v3
-        with:
-          name: build
-          path: build
 
       - name: Set up Python
         uses: actions/setup-python@v3
@@ -55,7 +49,15 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r backend/requirements.txt
       
-      
+      - name: Making Build Artefact Download Directory
+        run: mkdir ~/build
+        
+      - name:  Download Build Artefacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: build
+          
       - name: Copy build artifacts to Azure VM
         uses: appleboy/scp-action@master
         with:
