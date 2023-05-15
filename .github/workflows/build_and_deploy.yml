@@ -40,6 +40,12 @@ jobs:
      
       - name: Checkout code
         uses: actions/checkout@v3
+        
+      - run: mkdir ~/build
+      - uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: build
 
       - name: Set up Python
         uses: actions/setup-python@v3
@@ -56,7 +62,7 @@ jobs:
           host: ${{ secrets.AZURE_VM_IP }}
           username: shubhrad1
           key: ${{ secrets.AZURE_SSH_PRIVATE_KEY }}
-          source: ~/shubhrad-01/backend/build/
+          source: build/*
           target: ~/shubhrad-01/backend/build/
         
 
