@@ -38,8 +38,8 @@ jobs:
 
       - name: Deploy to Azure VM
         run: |
-          ssh user@your-azure-vm 'cd /path/to/your/django/project && git pull'
-          ssh user@your-azure-vm 'cd /path/to/your/django/project && pip install -r path/to/requirements.txt'
-          ssh user@your-azure-vm 'cd /path/to/your/django/project && python manage.py migrate'
-          ssh user@your-azure-vm 'cd /path/to/your/django/project && python manage.py collectstatic --noinput'
-          ssh user@your-azure-vm 'sudo systemctl restart my_django_service'
+          ssh ${{ secrets.SSH_PRIVATE_KEY }} shubhrad1@${{ secrets.SSH_PRIVATE_KEY }} 'cd /path/to/your/django/project && git pull'
+          ssh ${{ secrets.SSH_PRIVATE_KEY }} shubhrad1@${{ secrets.SSH_PRIVATE_KEY }} 'cd /path/to/your/django/project && pip install -r path/to/requirements.txt'
+          ssh ${{ secrets.SSH_PRIVATE_KEY }} shubhrad1@${{ secrets.SSH_PRIVATE_KEY }} 'cd /path/to/your/django/project && python manage.py migrate'
+          ssh ${{ secrets.SSH_PRIVATE_KEY }} shubhrad1@${{ secrets.SSH_PRIVATE_KEY }} 'cd /path/to/your/django/project && python manage.py collectstatic --noinput'
+          ssh ${{ secrets.SSH_PRIVATE_KEY }} shubhrad1@${{ secrets.SSH_PRIVATE_KEY }} 'sudo systemctl restart my_django_service'
