@@ -56,8 +56,8 @@ jobs:
           host: ${{ secrets.AZURE_VM_IP }}
           username: shubhrad1
           key: ${{ secrets.AZURE_SSH_PRIVATE_KEY }}
-          source: ~/runner/work/shubhrad-01/shubhrad-01/backend/build/
-          target: ~/shubhrad-01/backend/
+          source: backend/build/
+          target: "/home/shubhrad-01/backend"
         
 
       - name: Deploy to Azure VM
