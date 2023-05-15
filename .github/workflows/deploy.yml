@@ -16,6 +16,12 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
+    
+      - name: Set up environment variables
+        env:
+          VM_IP: ${{ secrets.AZURE_VM_IP }}
+          SSH_PRIVATE_KEY: ${{ secrets.AZURE_SSH_PRIVATE_KEY }}
+          
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -39,9 +45,9 @@ jobs:
 
       - name: Deploy to Azure VM
         run: |
-          ssh -i "${{ secrets.AZURE_SSH_PRIVATE_KEY }}" shubhrad1@"${{ secrets.AZURE_VM_IP }}" 'cd /path/to/your/django/project && git pull'
-          ssh -i "${{ secrets.AZURE_SSH_PRIVATE_KEY }}" shubhrad1@"${{ secrets.AZURE_VM_IP }}" 'cd /path/to/your/django/project && pip install -r path/to/requirements.txt'
-          ssh -i "${{ secrets.AZURE_SSH_PRIVATE_KEY }}" shubhrad1@"${{ secrets.AZURE_VM_IP }}" 'cd /path/to/your/django/project && python manage.py migrate'
-          ssh -i "${{ secrets.AZURE_SSH_PRIVATE_KEY }}" shubhrad1@"${{ secrets.AZURE_VM_IP }}" 'cd /path/to/your/django/project && python manage.py collectstatic --noinput'
+          ssh -i "$SSH_PRIVATE_KEY" shubhrad1@"$VM_IP" 'cd /path/to/your/django/project && git pull'
+          ssh -i "$SSH_PRIVATE_KEY" shubhrad1@"$VM_IP" 'cd /path/to/your/django/project && pip install -r path/to/requirements.txt'
+          ssh -i "$SSH_PRIVATE_KEY" shubhrad1@"$VM_IP" 'cd /path/to/your/django/project && python manage.py migrate'
+          ssh -i "$SSH_PRIVATE_KEY" shubhrad1@"$VM_IP" 'cd /path/to/your/django/project && python manage.py collectstatic --noinput'
           
 
