@@ -89,7 +89,7 @@ jobs:
 
         with:
           host: ${{ secrets.AZURE_VM_IP }}
-          username: ${{ secrets.AZURE_USERNAME }}
+          username: ${{ secrets.AZURE_SSH_USERNAME }}
           key: ${{ secrets.AZURE_SSH_PRIVATE_KEY }}
           script: |
             cd shubhrad-01
