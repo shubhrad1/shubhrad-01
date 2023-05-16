@@ -69,9 +69,9 @@ jobs:
       - name: Copy build artifacts to Azure VM
         env:
           SSH_PRIVATE_KEY: ${{ secrets.AZURE_SSH_PRIVATE_KEY }}
-          SSH_USERNAME: shubhrad1
+          SSH_USERNAME: ${{ secrets.AZURE_USERNAME }}
           SSH_HOSTNAME: ${{ secrets.AZURE_VM_IP }}
-          SSH_TARGET_DIR: /home/shubhrad1/shubhrad-01/backend/build
+          SSH_TARGET_DIR: ${{ secrets.ARTIFACT_TARGET }}
         run: |
           echo "$SSH_PRIVATE_KEY" | tr -d '\r' > deploy_key
           chmod 600 deploy_key
@@ -89,7 +89,7 @@ jobs:
 
         with:
           host: ${{ secrets.AZURE_VM_IP }}
-          username: shubhrad1
+          username: ${{ secrets.AZURE_USERNAME }}
           key: ${{ secrets.AZURE_SSH_PRIVATE_KEY }}
           script: |
             cd shubhrad-01
