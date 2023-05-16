@@ -13,6 +13,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Create .env file
+        run: echo "REACT_APP_API_URL = 'http://${{ secrets.AZURE_VM_IP }}:8000'" > .env
+        working-directory: frontend/
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
