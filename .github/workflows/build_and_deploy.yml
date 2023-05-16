@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Create .env file
-        run: echo "REACT_APP_API_URL = 'http://${{ secrets.AZURE_VM_IP }}:8000'" > .env
+        run: echo "REACT_APP_API_URL = 'http://${{ secrets.AZURE_VM_IP }}'" > .env
         working-directory: frontend/
 
 
