@@ -1,4 +1,4 @@
-name: Preview Deploye
+name: Preview Deploy
 
 on:
   push:
@@ -28,14 +28,14 @@ jobs:
         
       - name: Archive build artifacts
         run: |
-          mkdir -p tmp/build
-          tar -czf tmp/build/build.tar.gz -C backend/build .
+          mkdir -p tmp/build_preview
+          tar -czf tmp/build_preview/build.tar.gz -C backend/build .
           
       - name: Store build artifacts
         uses: actions/upload-artifact@v3
         with:
           name: build-artifacts
-          path: tmp/build/build.tar.gz
+          path: tmp/build_preview/build.tar.gz
           
   deploy:
     needs: build
@@ -58,7 +58,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: build-artifacts
-          path: tmp/build
+          path: tmp/build_preview
               
       - name: Copy build artifacts to Azure VM
         env:
@@ -72,10 +72,10 @@ jobs:
           eval "$(ssh-agent -s)"
           ssh-add deploy_key
 
-          scp -o StrictHostKeyChecking=no -r tmp/build/build.tar.gz "$SSH_USERNAME"@"$SSH_HOSTNAME":/home/"$SSH_USERNAME"/
+          scp -o StrictHostKeyChecking=no -r tmp/build_peview/build.tar.gz "$SSH_USERNAME"@"$SSH_HOSTNAME":/home/"$SSH_USERNAME"/build_preview/
           ssh -o StrictHostKeyChecking=no "$SSH_USERNAME@$SSH_HOSTNAME" 'mkdir -p '"$SSH_TARGET_DIR"
-          ssh -o StrictHostKeyChecking=no "$SSH_USERNAME@$SSH_HOSTNAME" 'tar -xzf /home/'"$SSH_USERNAME"'/build.tar.gz -C '"$SSH_TARGET_DIR"' --strip-components=1'
-          ssh -o StrictHostKeyChecking=no "$SSH_USERNAME@$SSH_HOSTNAME" 'rm /home/'"$SSH_USERNAME"'/build.tar.gz'
+          ssh -o StrictHostKeyChecking=no "$SSH_USERNAME@$SSH_HOSTNAME" 'tar -xzf /home/'"$SSH_USERNAME"'/build_preview/build.tar.gz -C '"$SSH_TARGET_DIR"' --strip-components=1'
+          ssh -o StrictHostKeyChecking=no "$SSH_USERNAME@$SSH_HOSTNAME" 'rm /home/'"$SSH_USERNAME"'/build_preview/build.tar.gz'
 
 
       - name: Deploy to Azure VM
@@ -86,7 +86,7 @@ jobs:
           username: ${{ secrets.AZURE_SSH_USERNAME }}
           key: ${{ secrets.AZURE_SSH_PRIVATE_KEY }}
           script: |
-            cd shubhrad-01
+            cd shubhrad-01_preview
             git pull
             source env/bin/activate
             cd backend
