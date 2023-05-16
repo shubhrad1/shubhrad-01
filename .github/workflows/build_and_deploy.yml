@@ -18,6 +18,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Create .env file
+        run: echo "REACT_APP_API_URL='https://0.0.0.0:8000'" > .env
+        working-directory: frontend/
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -96,6 +100,7 @@ jobs:
             source env/bin/activate
             cd backend
             pip install -r requirements.txt
+            python manage.py makemigrations
             python manage.py migrate
             python manage.py collectstatic --no-input
             deactivate
