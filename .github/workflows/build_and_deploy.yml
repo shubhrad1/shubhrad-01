@@ -69,7 +69,7 @@ jobs:
       - name: Copy build artifacts to Azure VM
         env:
           SSH_PRIVATE_KEY: ${{ secrets.AZURE_SSH_PRIVATE_KEY }}
-          SSH_USERNAME: ${{ secrets.AZURE_USERNAME }}
+          SSH_USERNAME: ${{ secrets.AZURE_SSH_USERNAME }}
           SSH_HOSTNAME: ${{ secrets.AZURE_VM_IP }}
           SSH_TARGET_DIR: ${{ secrets.ARTIFACT_TARGET }}
         run: |
