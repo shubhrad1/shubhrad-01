@@ -96,7 +96,7 @@ jobs:
           username: ${{ secrets.AZURE_SSH_USERNAME }}
           key: ${{ secrets.AZURE_SSH_PRIVATE_KEY }}
           script: |
-            cd shubhrad-01
+            cd shubhrad01
             git pull
             source env/bin/activate
             cd backend
