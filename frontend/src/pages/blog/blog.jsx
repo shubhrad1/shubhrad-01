@@ -88,7 +88,7 @@ const BlogPost = () => {
                     <div className={Blog.navbar_box}><Link>Link3</Link></div>
                     <div className={Blog.navbar_box}><Link>Link4</Link></div>
                     <div className={Blog.navbar_box}><Link>Link5</Link></div>
-                    <div className={Blog.navbar_box}><Link>Link6</Link></div>
+
                 
             </div>
             <div className={Blog.body}>
