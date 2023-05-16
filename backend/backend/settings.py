@@ -14,10 +14,11 @@ from pathlib import Path
 from dotenv import load_dotenv
 import environ
 import os
-import mimetypes
 
 
-mimetypes.add_type("text/css", ".css", True)
+
+
+
 
 
 
@@ -34,11 +35,14 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['20.120.38.207']
 
-
+if DEBUG:
+    import mimetypes
+    mimetypes.add_type("application/javascript", ".js", True)
+    mimetypes.add_type("text/css", ".css", True)
 # Application definition
 
 INSTALLED_APPS = [
