@@ -72,7 +72,7 @@ jobs:
           eval "$(ssh-agent -s)"
           ssh-add deploy_key
 
-          scp -o StrictHostKeyChecking=no -r tmp/build_peview/build.tar.gz "$SSH_USERNAME"@"$SSH_HOSTNAME":/home/"$SSH_USERNAME"/build_preview/
+          scp -o StrictHostKeyChecking=no -r tmp/build_preview/build.tar.gz "$SSH_USERNAME"@"$SSH_HOSTNAME":/home/"$SSH_USERNAME"/build_preview/
           ssh -o StrictHostKeyChecking=no "$SSH_USERNAME@$SSH_HOSTNAME" 'mkdir -p '"$SSH_TARGET_DIR"
           ssh -o StrictHostKeyChecking=no "$SSH_USERNAME@$SSH_HOSTNAME" 'tar -xzf /home/'"$SSH_USERNAME"'/build_preview/build.tar.gz -C '"$SSH_TARGET_DIR"' --strip-components=1'
           ssh -o StrictHostKeyChecking=no "$SSH_USERNAME@$SSH_HOSTNAME" 'rm /home/'"$SSH_USERNAME"'/build_preview/build.tar.gz'
