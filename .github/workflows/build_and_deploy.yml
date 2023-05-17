@@ -105,6 +105,6 @@ jobs:
             python manage.py migrate
             python manage.py collectstatic --no-input
             deactivate
-            
-            
+            sudo systemctl restart gunicorn
+            sudo systemctl restart nginx            
 
