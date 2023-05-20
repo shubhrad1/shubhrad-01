@@ -170,6 +170,7 @@ Link{
 @media only screen and (max-width: 600px) {
   .header
   {
+   top:25%;
    font-size: 50px;
    left:40px;
    line-height: normal;
@@ -197,6 +198,6 @@ Link{
   .content
   {
     font-size: 18px;
-    margin-left: 26px;
+    margin-left: 24px;
   }
 }
