@@ -167,4 +167,36 @@ Link{
     /* animation: tubelight 5s linear infinite; */
     text-shadow: 0 0 10px #0FFF50;
 }
-
+@media only screen and (max-width: 600px) {
+  .header
+  {
+   font-size: 50px;
+   left:40px;
+   line-height: normal;
+  }
+  .social
+  {
+    top:25%;
+    padding-left: 0;
+  }
+  ul {
+    padding-left: 10px;
+  }
+  ul li {
+    font-size: 20px;
+    background: #171515;
+    width: 35px;
+    height: 53px;
+    margin-left: 15px;
+    padding-left: 16px;
+  }
+  ul li:before{
+    width: 53px;
+    height: 53px;
+  }
+  .content
+  {
+    font-size: 18px;
+    margin-left: 26px;
+  }
+}
