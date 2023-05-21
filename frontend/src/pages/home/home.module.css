@@ -20,7 +20,7 @@
     color: #fff;
     text-shadow:0 0 5px #fff;
     font-size:100px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Libre Franklin', sans-serif;
     left: 90px;
     width:70%;
     top: 30%;
@@ -151,7 +151,7 @@ Link{
 {
     font-size: 25px;
     color:#fff;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Libre Franklin', sans-serif;
     margin-left: 80px;
     
     -webkit-transition: margin 0.2s ease-out;
@@ -171,7 +171,7 @@ Link{
   .header
   {
    top:25%;
-   font-size: 50px;
+   font-size: 46px;
    left:40px;
    line-height: normal;
   }
@@ -197,7 +197,7 @@ Link{
   }
   .content
   {
-    font-size: 18px;
+    font-size: 13px;
     margin-left: 24px;
   }
 }
