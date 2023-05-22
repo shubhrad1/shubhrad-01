@@ -8,7 +8,7 @@ import ContactMe from "./pages/contact/ContactMe";
 import BlogPost from "./pages/blog/blog";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import icon from "./lion96.png";
+import icon from "./lion96.ico";
 import { useEffect } from "react";
 
 
