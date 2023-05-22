@@ -8,6 +8,9 @@ import ContactMe from "./pages/contact/ContactMe";
 import BlogPost from "./pages/blog/blog";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import icon from "./lion96.png";
+import { useEffect } from "react";
+
 
 const styles = {
     root: {
@@ -21,6 +24,11 @@ const styles = {
     },
 };
 function App() {
+    useEffect(()=> {
+        const favicon =document.getElementById('favicon');
+        favicon.setAttribute('href',icon);
+    },[]);
+    
     return (
         <div style={styles.root}>
             <div className="App">
