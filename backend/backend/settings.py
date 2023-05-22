@@ -35,9 +35,9 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['20.120.38.207']
+ALLOWED_HOSTS = ['0.0.0.0','20.120.38.207']
 
 if DEBUG:
     import mimetypes
