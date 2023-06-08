@@ -15,7 +15,7 @@ const HomePage = () => {
             }
             case 2: {
                 return (window.location.href =
-                    "https://www.instagram.com/d_shubhradeep/");
+                    "https://www.instagram.com/shubhrad.01/");
             }
             case 3: {
                 return (window.location.href =

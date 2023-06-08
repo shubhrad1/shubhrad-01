@@ -53,7 +53,7 @@ const BlogPost = () => {
             return list.push(
                 <div className={Blog.blogtile}>
                     
-                    <div>Title{blogPost.title}</div>
+                    <div>Title:{blogPost.title}</div>
                     <div>Category:{blogPost.category}</div>
                 </div>
             );
@@ -93,9 +93,9 @@ const BlogPost = () => {
             </div>
             <div className={Blog.body}>
                 <div className={Blog.blog_card}>
-                    <div className={Blog.blog_title}>{featuredBlog.title}</div>
-                    <div className={Blog.blog_content}>{featuredBlog.excerpt}</div>
-                    <div className={Blog.continue_read}><Link to={`/blog/${featuredBlog.slug}`}>Continue Reading.....</Link></div>
+                    <div className={Blog.featured_blog_title}>{featuredBlog.title}</div>
+                    <div className={Blog.featured_blog_content}>{featuredBlog.excerpt}</div>
+                    <div className={Blog.featured_continue_read}><Link to={`/blog/${featuredBlog.slug}`}>Continue Reading.....</Link></div>
                 </div>
                 {/* <div className={Blog.blogArea}> */}
                     {getBlogs()}
