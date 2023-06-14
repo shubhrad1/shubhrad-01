@@ -1,2 +1,2 @@
 # shubhrad-01
-URL: https://shubhrad1.netlify.app
+URL: http://20.120.38.207/
