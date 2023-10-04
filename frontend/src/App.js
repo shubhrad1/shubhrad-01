@@ -4,6 +4,7 @@
 import ParticlesConfig from "./pages/home/assets/ParticlesConfig";
 
 import HomePage from "./pages/home/Home";
+import AboutMe from "./pages/about/about";
 import ContactMe from "./pages/contact/ContactMe";
 import BlogPost from "./pages/blog/blog";
 
@@ -36,7 +37,7 @@ function App() {
                 <Router>
                     <Routes>
                         <Route path="/" element={<HomePage />} />
-                        <Route path="/aboutme" element={<ContactMe />} />
+                        <Route path="/aboutme" element={<AboutMe />} />
                         <Route path="/projects" element={<ContactMe />} />
                         <Route path="/gallery" element={<ContactMe />} />
                         <Route path="/blogs" element={<BlogPost />} />
